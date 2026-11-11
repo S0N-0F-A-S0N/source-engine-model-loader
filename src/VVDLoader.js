@@ -11,11 +11,8 @@ import {
 
 function memcopy( dst, dstStart, src, srcStart, len ) {
 
-	for ( let i = 0; i < len; i ++ ) {
-
-		dst[ dstStart + i ] = src[ srcStart + i ];
-
-	}
+	// Optimized memcopy using typed array set method
+	dst.set( src.subarray( srcStart, srcStart + len ), dstStart );
 
 }
 
